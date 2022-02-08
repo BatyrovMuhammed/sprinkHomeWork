@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="myAnimal"
+          class="peaksoft.Horse">
+        <property name="name" value="${horse.name}"/>
+        <property name="bred" value="${horse.bred}"/>
+        <property name="age" value="${horse.age}"/>
+        <property name="color" value="${horse.color}"/>
+        <property name="weight" value="${horse.weight}"/>
+
+    </bean>
+
+<bean id="myPerson"
+         class="peaksoft.Person">
+    <property name="animal" ref="myAnimal"/>
+    <property name="name" value="${person.name}"/>
+    <property name="age" value="${person.age}"/>
+
+</bean>
+
+    <bean id="myAnimals"
+          class="peaksoft.Eagle">
+        <property name="name" value="${eagle.name}"/>
+        <property name="age" value="${eagle.age}"/>
+        <property name="weight" value="${eagle.weight}"/>
+        <property name="color" value="${eagle.color}"/>
+    </bean>
+
+    <bean id="myPersons"
+          class="peaksoft.Person">
+    <property name="animal" ref="myAnimals"/>
+    <property name="name" value="${persons.name}"/>
+    <property name="age" value="${persons.age}"/>
+
+</bean>
+
+</beans>
